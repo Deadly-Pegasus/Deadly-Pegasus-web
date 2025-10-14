@@ -6,6 +6,7 @@ import Home from './Home/Home';
 import Products from './Products/Products';
 import Orders from './Orders/Orders'
 import OrderDetail from './Orders/OrderDetail';
+import Payment from './Payment/Payment';
 
 function App() {
 
@@ -20,7 +21,7 @@ const closeMenu = () => {
     <Router>
         <div className = "grid-container">
         <link rel="stylesheet" href="style.css" />
-        <title>Deadly Pegagus</title>
+        <title>Deadly Pegasus</title>
             <header className="header">
                 <div className="brand">
                     <button onClick={openMenu}>&#9776;</button>
@@ -30,6 +31,7 @@ const closeMenu = () => {
                     <Link to="/">Home</Link>
                     <Link to="/catalog">Catalog</Link>
                     <Link to="/orders">Orders</Link>
+                    <Link to="/payment">Payment</Link>
                 </div>
             </header>
 
@@ -55,6 +57,7 @@ const closeMenu = () => {
             <Route path="/catalog" element={<Products />} />
             <Route path="orders" element={<Orders />}></Route>
             <Route path="/order/:id" element={<OrderDetail />}></Route>
+            <Route path="/payment" element={<Payment />}></Route>
         </Routes>
     </main>
     <footer className="footer">
