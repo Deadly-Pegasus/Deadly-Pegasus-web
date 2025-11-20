@@ -13,27 +13,28 @@ type Product = {
   imageUrl: string;
 }
 
-const emptyProducts: Product[] = [];
+const emptyProducts: Product [] = [];
 
 function Products() {
 
   const [products, setProducts]: [Product[], (products: Product[]) => void] = useState(emptyProducts);
+
   useEffect(() => {
-    axios.get<Product[]>("https:localhost:7250/catalog",
+    axios.get<Product[]>("http://localhost:7250/catalog",
       {
         headers: {
           "Content-Type": "application/json",
-        },  
+        },
       })
       .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error));
-      }, []); 
+      .catch((error) => console.log(error));   
+  }, []);
 
   return (
     <div className="content">
       <ul className="products">
         {products.map((product) => (
-          <li key={product.name}>
+          <li key={product.id}>
             <div className="product">
               <img
                 className="product-image"
